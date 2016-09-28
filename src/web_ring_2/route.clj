@@ -53,6 +53,7 @@
 
 (defn set-alias [dir file alias]
   (let [path (get-path dir file)]
-    (data/set-alias path alias)
-    (resp/response nil)))
+    (if (.exists (io/as-file path))
+      (do (data/set-alias path alias) (resp/response nil))
+      (comp-rte/not-found "File not found"))))
       
