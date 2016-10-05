@@ -51,9 +51,9 @@
 
 ; Set an alias
 
-(defn set-alias [dir file alias]
+(defn set-alias! [dir file alias]
   (let [path (get-path dir file)]
     (if (.exists (io/as-file path))
-      (do (data/set-alias path alias) (resp/response nil))
+      (do (data/set-alias! path alias) (resp/response nil))
       (comp-rte/not-found "File not found"))))
       

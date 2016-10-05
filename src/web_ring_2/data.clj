@@ -14,12 +14,12 @@
     (edn/read-string (slurp filename))
     {}))
 
-(defn put-index [index] "Save the index as a file"
+(defn put-index! [index] "Save the index as a file"
   (spit filename (prn-str index)))
   
-(defn set-alias [path alias] "Update the file alias"
+(defn set-alias! [path alias] "Update the file alias"
   (let [new-index (assoc (get-index) path alias)]
-    (put-index new-index)))
+    (put-index! new-index)))
 
 (defn properties [path index image] "Get map for one file"
   (let [file-path (str path "/" image)]

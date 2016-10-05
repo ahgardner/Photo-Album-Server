@@ -15,6 +15,6 @@
            (GET "/:album/:photo" [album photo] 
                 (download-photo album photo))
            (PUT "/:album/:photo" [album photo alias] 
-                (set-alias album photo alias)))
+                (set-alias! album photo alias)))
             
 (def app (-> app-routes handler/api wrap-json-response))
