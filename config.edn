@@ -1,1 +1,6 @@
-{ :root-path "/Volumes/Iomega HDD/A-T wedding pix" }
+{ :root-path "/Volumes/Iomega HDD/A-T wedding pix" 
+  :db-def {:classname "com.mysql.jdbc.Driver"
+           :subprotocol "mysql"
+           :subname "//localhost:3306/resttest"
+           :user "dad"
+           :password "arturo"}}

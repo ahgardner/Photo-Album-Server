@@ -3,7 +3,9 @@
 (ns web-ring-2.handler
   (:use compojure.core
         ring.middleware.json
-        web-ring-2.route)
+        web-ring-2.route
+        ring.middleware.logger
+        clj-logging-config.log4j)
   (:require 
     [compojure.handler :as handler]))
 
@@ -17,4 +19,5 @@
            (PUT "/:album/:photo" [album photo alias] 
                 (set-alias! album photo alias)))
             
-(def app (-> app-routes handler/api wrap-json-response))
+(def app (-> app-routes handler/api wrap-json-response wrap-with-logger))
+                                                                                             
